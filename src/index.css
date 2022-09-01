@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+.titulo{
+  font-family: 'Secular One';
+  font-size: 40px;
+}
+
+.portadaPerfil{
+  background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900');
+  background-repeat: no-repeat;
+}
+
+.titulo2{
+  font-family: 'Secular One';
+  font-size: 30px;
+}
+
+
+p{
+  max-width: 900px;
+}
+
+.div{
+  max-width: 900px;
+}
+
+@media only screen and (max-width: 578px) {
+  p, .div{
+    max-width: 180px;
+  }
+}
