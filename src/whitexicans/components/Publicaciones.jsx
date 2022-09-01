@@ -57,7 +57,7 @@ export const Publicaciones = ({ Informacion, data }) => {
     };
 
     const putLike = async(slug) => {
-      const url = `http://127.0.0.1:8000/like/${slug}`;
+      const url = `https://wbbackend-production.up.railway.app/like/${slug}`;
       const token = localStorage.getItem('token');
       const resp = await axios.post(url,{
 

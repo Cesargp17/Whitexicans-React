@@ -52,7 +52,7 @@ export const CreateProvider = ({ children }) => {
 
     const getCategory = async() => {
         const token = localStorage.getItem('token');
-        const url = 'http://127.0.0.1:8000/category/';
+        const url = 'https://wbbackend-production.up.railway.app/category/';
         if(!token) return;
         const resp = await axios.get(url,{
           headers: {
@@ -110,7 +110,7 @@ export const CreateProvider = ({ children }) => {
     };
     const createPublication = async(titulo, descripcion, categoria) => {
       const token = localStorage.getItem('token');
-      const url = 'http://localhost:8000/post/';
+      const url = 'https://wbbackend-production.up.railway.app/post/';
       if(!token) return;
       try {
         const resp = await axios.post(url, { title: titulo, description: descripcion, category: categoria, image: Photos  },{
@@ -132,7 +132,7 @@ export const CreateProvider = ({ children }) => {
 
     const onGetComments = async(id) => {
       const token = localStorage.getItem('token');
-        const url = `http://localhost:8000/comment/${ id }`;
+        const url = `https://wbbackend-production.up.railway.app/comment/${ id }`;
         if(!token) return;
         const resp = await axios.get(url,{
           headers: {

@@ -82,7 +82,7 @@ export const AuthProvider = ({ children }) => {
 
         checkingAuth();
           try {
-            const loginUrl = 'http://127.0.0.1:8000/api/token/';
+            const loginUrl = 'https://wbbackend-production.up.railway.app/api/token/';
             const resp = await axios.post(loginUrl, {username, password})
             refresh = resp.data.refresh;
             access = resp.data.access;
@@ -93,7 +93,7 @@ export const AuthProvider = ({ children }) => {
             localStorage.setItem('token-init-date', decoded.exp);
             localStorage.setItem('refresh', refresh);
 
-            const profile = `http://127.0.0.1:8000/${slug}`;
+            const profile = `https://wbbackend-production.up.railway.app/${slug}`;
             const respuesta = await axios.get(profile,{
                 headers: {
                     'Authorization': `Bearer ${access}`
@@ -114,7 +114,7 @@ export const AuthProvider = ({ children }) => {
             slug = decoded.slug;
             const { user_id } = decoded;
 
-            const profile = `http://127.0.0.1:8000/${slug}`;
+            const profile = `https://wbbackend-production.up.railway.app/${slug}`;
             const respuesta = await axios.get(profile,{
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -129,7 +129,7 @@ export const AuthProvider = ({ children }) => {
     const onStartRegister = async(username, password, firstName, lastName, email) => {
         checkingAuth();
         try {
-            const registerUrl = 'http://localhost:8000/signup/';
+            const registerUrl = 'https://wbbackend-production.up.railway.app/signup/';
             const resp = await axios({
                 method: 'post',
                 url: registerUrl,
@@ -155,7 +155,7 @@ export const AuthProvider = ({ children }) => {
       });
 
     const getFollowsPublications = async() => {
-        const url = 'http://127.0.0.1:8000/post/follows/';
+        const url = 'https://wbbackend-production.up.railway.app/post/follows/';
         const token = localStorage.getItem('token');
         if(!token) return;
         try {
@@ -174,7 +174,7 @@ export const AuthProvider = ({ children }) => {
       };
 
       const getMostPopularPublications = async() => {
-        const url = 'http://127.0.0.1:8000/post/popular/';
+        const url = 'https://wbbackend-production.up.railway.app/post/popular/';
         const token = localStorage.getItem('token');
         if(!token) return;
         try {

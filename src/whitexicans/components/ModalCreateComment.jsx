@@ -26,7 +26,7 @@ export const ModalCreateComment = ({ id }) => {
   const onCreateNewComment = async(Contenido) => {
     const token = localStorage.getItem('token');
     try {
-      const url = `http://localhost:8000/comment/${ id }`;
+      const url = `https://wbbackend-production.up.railway.app/comment/${ id }`;
       const resp = await axios.post(url, { content: Contenido  },{
         headers:{
           'Authorization': `Bearer ${token}`

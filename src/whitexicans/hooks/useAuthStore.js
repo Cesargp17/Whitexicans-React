@@ -7,7 +7,7 @@ export const useAuthStore = () => {
 
     const { logout, checkingAuth, login, user } = useContext(AuthContext);
 
-    const refreshUrl = 'http://127.0.0.1:8000/api/token/refresh/';
+    const refreshUrl = 'https://wbbackend-production.up.railway.app/api/token/refresh/';
 
     const checkAuthToken = async() => {
         checkingAuth();
@@ -25,7 +25,7 @@ export const useAuthStore = () => {
             localStorage.setItem('token-init-date', decoded.exp);
             localStorage.setItem('refresh', resp.data.refresh)
 
-            const profile = `http://127.0.0.1:8000/${slug}`;
+            const profile = `https://wbbackend-production.up.railway.app/${slug}`;
             const respuesta = await axios.get(profile,{
                 headers: {
                     'Authorization': `Bearer ${token}`

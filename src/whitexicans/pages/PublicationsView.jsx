@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useContext } from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { AuthContext } from '../../auth/context/AuthContext';
 import { WhitexicansLayout } from '../../UI/layout/WhitexicansLayout'
 import { LoadingThink } from '../../UI/LoadingThink';
@@ -52,7 +52,7 @@ export const PublicationsView = () => {
 
     const getPublications = async() => {
         const token = localStorage.getItem('token');
-        const profile = `http://127.0.0.1:8000/post/`;
+        const profile = `https://wbbackend-production.up.railway.app/post/`;
         const respuesta = await axios.get(profile,{
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -75,7 +75,7 @@ export const PublicationsView = () => {
     };
 
     const putLike = async(slug) => {
-        const url = `http://127.0.0.1:8000/like/${slug}`;
+        const url = `https://wbbackend-production.up.railway.app/like/${slug}`;
         const token = localStorage.getItem('token');
         const resp = await axios.post(url,{
   
@@ -98,6 +98,12 @@ export const PublicationsView = () => {
       getComments();
     }, []);
 
+    const navigate = useNavigate();
+
+    const onClickUser = (slug) => {
+        navigate(`/view/${slug}`)
+    };
+
   return (
     <WhitexicansLayout>
         {
@@ -111,7 +117,11 @@ export const PublicationsView = () => {
                     <CardHeader
                       avatar={
                         <Avatar sx={{ bgcolor: 'primary.main' }} aria-label="recipe">
-                          { post.author_username.charAt(0) }
+                              {
+                                post.author_img
+                                ? <img src={post.author_img} width='40px' height='40px' alt="..." />
+                                : post.author_username.charAt(0)
+                              }
                         </Avatar>
                       }
                       action={
