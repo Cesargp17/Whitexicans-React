@@ -22,6 +22,8 @@ import { LikesModal } from './LikesModal';
 import { ModalComments } from './ModalComments';
 import { Publicaciones } from './Publicaciones';
 import { usePost } from '../hooks/usePost';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import PersonIcon from '@mui/icons-material/Person';
 
 export const ProfilePersons = () => {
 
@@ -101,7 +103,7 @@ export const ProfilePersons = () => {
       }, [Info.isLoading]);
     
       const onFollowUser = async() => {
-        const url = `https://whitexicanblogs.onrender.com/${id}`;
+        const url = `https://whitexicanblogs.onrender.com/follow/${id}`;
         const token = localStorage.getItem('token');
         const respuesta = await axios.post(url,{
             
