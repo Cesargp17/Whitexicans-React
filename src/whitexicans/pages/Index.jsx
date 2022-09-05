@@ -10,16 +10,19 @@ import { Publicaciones } from '../components/Publicaciones'
 
 export const Index = () => { 
 
-  const { openModal, setOpenModal } = useContext(AuthContext);
+  // const { width, height } = useScreenSize();
 
-  const onOpenModal = () => {
-    setOpenModal(true);
-  }
+  // const { openModal, setOpenModal } = useContext(AuthContext);
+
+  // const onOpenModal = () => {
+  //   setOpenModal(true);
+  // }
 
   return (
     <>
     <WhitexicansLayout>
       <CrearPublicacion/>
+
     </WhitexicansLayout>
     </>
     )

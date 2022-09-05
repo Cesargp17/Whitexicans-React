@@ -11,23 +11,31 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
 import InfoIcon from '@mui/icons-material/Info';
+import { CreateContext } from '../whitexicans/context/CreateContex';
+import { useContext } from 'react';
+import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
+import GroupIcon from '@mui/icons-material/Group';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
 export const SideBar = ({ drawerWidth = 240 }) => {
 
     const { width, height } = useScreenSize();
 
     const Navegacion = [
         {id: 1, nombre: 'Inicio', icon: <HomeIcon/>},
-        {id: 2, nombre: 'Crear publicación', icon: <DynamicFeedIcon/>},
-        { id: 3, nombre: 'Más populares', icon: <PostAddIcon/> },
-        { id: 4, nombre: 'Publicaciones de amigos', icon: <LocalPostOfficeIcon/> },
+        {id: 2, nombre: 'Crear publicación', icon: <PostAddIcon/>},
+        { id: 3, nombre: 'Más populares', icon: <LocalFireDepartmentIcon/> },
+        { id: 4, nombre: 'Publicaciones de amigos', icon: <GroupIcon/> },
         { id: 5, nombre: 'Perfíl', icon: <AccountCircleIcon/> },
         { id: 6, nombre: 'Ajustes', icon: <SettingsIcon/> },
         { id: 8, nombre: 'Publicidad', icon: <LocalLibraryIcon/> },
         { id: 9, nombre: 'Acerca de', icon: <InfoIcon/> },
+        { id: 10, nombre: 'Actualizaciones', icon: <NewspaperIcon/> },
         { id: 7, nombre: 'Cerrar sesión', icon: <LogoutOutlined/> },
     ];
 
-    const [open, setOpen] = useState(false);
+    // const [open, setOpen] = useState(false);
+
+    const { OpenMenú: open, setOpenMenú: setOpen } = useContext(CreateContext);
 
     const getSizeScreen = () => {
         if(width >= 606) {
@@ -41,7 +49,7 @@ export const SideBar = ({ drawerWidth = 240 }) => {
   
       useEffect(() => {
         getSizeScreen();
-      }, [width])
+      }, [width]);
 
   return (
     <Box component='nav' sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}>

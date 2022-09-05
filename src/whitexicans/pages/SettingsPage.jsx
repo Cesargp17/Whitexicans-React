@@ -80,7 +80,7 @@ export const SettingsPage = () => {
   }
 
   const onChangeProfilePhoto = async() => {
-    const url = `https://wbbackend-production.up.railway.app/profilepic/`;
+    const url = `https://whitexicanblogs.onrender.com/profilepic/`;
     const token = localStorage.getItem('token');
     if(!token) return;
 

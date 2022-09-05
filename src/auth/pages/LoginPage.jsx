@@ -1,5 +1,5 @@
 
-import { Alert, Avatar, Box, Button, Grid, Link, TextField, Typography } from '@mui/material';
+import { Alert, Avatar, Badge, Box, Button, Grid, Link, TextField, Typography } from '@mui/material';
 import { useContext, useState } from 'react';
 import { useForm } from '../../whitexicans/hooks/useForm';
 import { AuthContext } from '../context/AuthContext';
@@ -39,15 +39,17 @@ export const LoginPage = () => {
 
   const onLogin = (e) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    if (!isFormValid) return;
+    // setFormSubmitted(true);
+    // if (!isFormValid) return;
     onStartLogin(username, password);
   }
 
   return (
     <AuthLayout title='Iniciar Sesion'>
                   <h1 className='titulo' align="center" component="h1" variant="h1" sx={{ mt: 2, mb: 8 }}>
+                  <Badge sx={{ mt: 2 }} badgeContent='Beta v1.0.0' color="secondary">
               WHITEXICANS BLOG
+              </Badge>
             </h1>
       <form onSubmit={onLogin} className='animate__animated animate__fadeIn'>
           

@@ -82,7 +82,7 @@ export const AuthProvider = ({ children }) => {
 
         checkingAuth();
           try {
-            const loginUrl = 'https://wbbackend-production.up.railway.app/api/token/';
+            const loginUrl = 'https://whitexicanblogs.onrender.com/api/token/';
             const resp = await axios.post(loginUrl, {username, password})
             refresh = resp.data.refresh;
             access = resp.data.access;
@@ -93,7 +93,7 @@ export const AuthProvider = ({ children }) => {
             localStorage.setItem('token-init-date', decoded.exp);
             localStorage.setItem('refresh', refresh);
 
-            const profile = `https://wbbackend-production.up.railway.app/${slug}`;
+            const profile = `https://whitexicanblogs.onrender.com/${slug}`;
             const respuesta = await axios.get(profile,{
                 headers: {
                     'Authorization': `Bearer ${access}`
@@ -114,7 +114,7 @@ export const AuthProvider = ({ children }) => {
             slug = decoded.slug;
             const { user_id } = decoded;
 
-            const profile = `https://wbbackend-production.up.railway.app/${slug}`;
+            const profile = `https://whitexicanblogs.onrender.com/${slug}`;
             const respuesta = await axios.get(profile,{
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -129,7 +129,7 @@ export const AuthProvider = ({ children }) => {
     const onStartRegister = async(username, password, firstName, lastName, email) => {
         checkingAuth();
         try {
-            const registerUrl = 'https://wbbackend-production.up.railway.app/signup/';
+            const registerUrl = 'https://whitexicanblogs.onrender.com/signup/';
             const resp = await axios({
                 method: 'post',
                 url: registerUrl,
@@ -155,7 +155,7 @@ export const AuthProvider = ({ children }) => {
       });
 
     const getFollowsPublications = async() => {
-        const url = 'https://wbbackend-production.up.railway.app/post/follows/';
+        const url = 'https://whitexicanblogs.onrender.com/post/follows/';
         const token = localStorage.getItem('token');
         if(!token) return;
         try {
@@ -174,7 +174,7 @@ export const AuthProvider = ({ children }) => {
       };
 
       const getMostPopularPublications = async() => {
-        const url = 'https://wbbackend-production.up.railway.app/post/popular/';
+        const url = 'https://whitexicanblogs.onrender.com/post/popular/';
         const token = localStorage.getItem('token');
         if(!token) return;
         try {

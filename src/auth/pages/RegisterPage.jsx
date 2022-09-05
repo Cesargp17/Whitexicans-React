@@ -4,7 +4,7 @@ import { AuthContext } from '../context/AuthContext';
 import { AuthLayout } from '../layout/AuthLayout'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { NavLink } from 'react-router-dom';
-import { Alert, Avatar, Box, Button, Grid, Link, TextField, Typography } from '@mui/material';
+import { Alert, Avatar, Badge, Box, Button, Grid, Link, TextField, Typography } from '@mui/material';
 
 function Copyright(props) {
     return (
@@ -51,7 +51,9 @@ export const RegisterPage = () => {
   return (
     <AuthLayout>
 <h1 className='titulo' align="center" component="h1" variant="h1" sx={{ mb: 8 }}>
+<Badge sx={{ mt: 2 }} badgeContent='Beta v1.0.0' color="secondary">
               WHITEXICANS BLOG
+              </Badge>
             </h1>
       <form onSubmit={onRegister} className='animate__animated animate__fadeIn'>
           

@@ -52,7 +52,7 @@ export const PublicationsView = () => {
 
     const getPublications = async() => {
         const token = localStorage.getItem('token');
-        const profile = `https://wbbackend-production.up.railway.app/post/`;
+        const profile = `https://whitexicanblogs.onrender.com/post/`;
         const respuesta = await axios.get(profile,{
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -75,7 +75,7 @@ export const PublicationsView = () => {
     };
 
     const putLike = async(slug) => {
-        const url = `https://wbbackend-production.up.railway.app/like/${slug}`;
+        const url = `https://whitexicanblogs.onrender.com/like/${slug}`;
         const token = localStorage.getItem('token');
         const resp = await axios.post(url,{
   

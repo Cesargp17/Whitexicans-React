@@ -57,7 +57,7 @@ export const Publicaciones = ({ Informacion, data }) => {
     };
 
     const putLike = async(slug) => {
-      const url = `https://wbbackend-production.up.railway.app/like/${slug}`;
+      const url = `https://whitexicanblogs.onrender.com/${slug}`;
       const token = localStorage.getItem('token');
       const resp = await axios.post(url,{
 

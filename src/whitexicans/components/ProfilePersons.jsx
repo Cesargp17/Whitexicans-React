@@ -40,7 +40,7 @@ export const ProfilePersons = () => {
     })
 
     const getInfo = async() => {
-        const profile = `https://wbbackend-production.up.railway.app/${id}`;
+        const profile = `https://whitexicanblogs.onrender.com/${id}`;
         const token = localStorage.getItem('token');
         const respuesta = await axios.get(profile,{
             headers: {
@@ -101,7 +101,7 @@ export const ProfilePersons = () => {
       }, [Info.isLoading]);
     
       const onFollowUser = async() => {
-        const url = `https://wbbackend-production.up.railway.app/follow/${id}`;
+        const url = `https://whitexicanblogs.onrender.com/${id}`;
         const token = localStorage.getItem('token');
         const respuesta = await axios.post(url,{
             
@@ -119,7 +119,7 @@ export const ProfilePersons = () => {
       };
 
     const putLike = async(slug) => {
-      const url = `https://wbbackend-production.up.railway.app/like/${slug}`;
+      const url = `https://whitexicanblogs.onrender.com/${slug}`;
       const token = localStorage.getItem('token');
       const resp = await axios.post(url,{
 

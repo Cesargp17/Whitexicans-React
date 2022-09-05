@@ -3,9 +3,25 @@ import { LogoutOutlined, MenuOutlined } from '@mui/icons-material';
 import { useContext } from 'react';
 import { AuthContext } from '../auth/context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { useScreenSize } from '../whitexicans/hooks/useScreenSize';
+import { CreateContext } from '../whitexicans/context/CreateContex';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 export const NavBar = ({ drawerWidth = 255 }) => {
+
+    const { OpenMenú: open, setOpenMenú: setOpen } = useContext(CreateContext);
+
+    const { width, height } = useScreenSize();
+  
+    const onClickMenu = () => {
+      if(open){
+        setOpen(false)
+      }else{
+        setOpen(true)
+      };
+    };
 
     const { user } = useContext(AuthContext);
 
@@ -32,13 +48,42 @@ export const NavBar = ({ drawerWidth = 255 }) => {
             <Badge sx={{ mt: 2 }} badgeContent='Beta v1.0.0' color="secondary">
                 <Typography variant='h6' noWrap component='div'> Whitexicans</Typography>
                 </Badge>
-                <IconButton onClick={()=>navigate(`/perfil/${ user.slug }`)} color='secondary'>
+                {/* <IconButton onClick={()=>navigate(`/perfil/${ user.slug }`)} color='secondary'> */}
+            {
+            width <= 599
+            ? (
+                <>
+                <Avatar sx={{ bgcolor: 'green', mr: 5 }} aria-label="recipe">
+                <img onClick={()=>navigate(`/perfil/${ user.slug }`)} src={`${user.img ? user.img : 'https://dummyimage.com/40x40/ced4da/6c757d'}`} width='40px' height='40px' alt="..." />
+             </Avatar>
+              <IconButton
+              onClick={onClickMenu}
+              size='sm'
+              sx={{
+                color: 'white',
+                ':hover': { backgroundColor: 'gray', opacity: 0.9 },
+                position: 'fixed',
+                right: 10,
+              }}
+            >
+              {
+                open
+                ? <CloseIcon sx={{ fontSize: 30 }} />
+                : <MenuIcon sx={{ fontSize: 30 }} />
+              }
+            </IconButton>
+            </>
+            )
+            : <>
+                            <IconButton onClick={()=>navigate(`/perfil/${ user.slug }`)} color='secondary'>
             <Avatar sx={{ bgcolor: 'green' }} aria-label="recipe">
                <img src={`${user.img ? user.img : 'https://dummyimage.com/40x40/ced4da/6c757d'}`} width='40px' height='40px' alt="..." />
             </Avatar>&nbsp;
                 <Typography variant='h6' noWrap component='div'> { user.username } &nbsp; </Typography>
-                    {/* <LogoutOutlined onClick={onLogout} /> */}
                 </IconButton>
+                </>
+          }
+
             </Grid>
 
         </Toolbar>
