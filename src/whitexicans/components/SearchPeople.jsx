@@ -96,17 +96,18 @@ export const SearchPeople = () => {
     >
                 <Box sx={style}>
                     {
-                        personas == []
+                        personas.length === 0
                         ?<LoadingThink/>
                         :(
                             <form onSubmit={ onSearchPeople }>
                             <Autocomplete
                             options={personas}
+
                             getOptionLabel={(option) => option.username}
                             filterOptions={filterOptions}
                             sx={{ width: 300 }}
                             onChange={ e => setBusqueda(e.target.innerText) } 
-                            renderInput={(params) => <TextField value={ Busqueda } onChange={ e => setBusqueda(e.target.innerText) }  {...params} label="Buscar..." />}
+                            renderInput={(params) => <TextField value={ Busqueda } onChange={ e => setBusqueda(e.target.innerText) }  {...params} label="Buscar..." /> }
                           />
                     <IconButton type='submit' aria-label="delete">
                     <SearchIcon sx={{ color: 'black' }}/>&nbsp;<Typography sx={{ color: 'black' }}>Buscar...</Typography>
