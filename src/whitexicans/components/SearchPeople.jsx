@@ -96,7 +96,7 @@ export const SearchPeople = () => {
     >
                 <Box sx={style}>
                     {
-                        personas == null
+                        personas == []
                         ?<LoadingThink/>
                         :(
                             <form onSubmit={ onSearchPeople }>
