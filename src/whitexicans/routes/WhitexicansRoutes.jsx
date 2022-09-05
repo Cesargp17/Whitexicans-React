@@ -1,4 +1,4 @@
-import { Settings } from '@mui/icons-material'
+import { Settings, Update } from '@mui/icons-material'
 import React, { useContext } from 'react'
 import { useEffect } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
@@ -12,6 +12,7 @@ import { ProfilePage } from '../pages/ProfilePage'
 import { PublicationsView } from '../pages/PublicationsView'
 import { PubliPage } from '../pages/PubliPage'
 import { SettingsPage } from '../pages/SettingsPage'
+import { Updates } from '../pages/Updates'
 
 export const WhitexicansRoutes = () => {
 
@@ -31,9 +32,11 @@ export const WhitexicansRoutes = () => {
         <Route path="/follows" element={ <FollowPublications/> } />
         <Route path='/perfil/:id' element={ <ProfilePage/> }/>
         <Route path='/view/:id' element={ <ProfilePersons/> }/>
+        <Route path='/view/*' element={ <ProfilePage/> }/>
         <Route path='/settings/:id' element={ <SettingsPage/> }/>
         <Route path='/publicidad' element={ <PubliPage/> }/>
         <Route path='/about' element={ <About/> }/>
+        <Route path='/updates' element={ <Updates/> }/>
         <Route path="/*" element={ <Navigate to="/" /> } />
     </Routes>
   )

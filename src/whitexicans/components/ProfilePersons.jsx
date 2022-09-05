@@ -31,6 +31,8 @@ export const ProfilePersons = () => {
 
     const { user } = useContext(AuthContext);
 
+    const [Page, setPage] = useState(false);
+
     // const {Info, Valor, onFollowUser, getInfo} = usePost(id);
 
     const [Info, setInfo] = useState({
@@ -44,7 +46,8 @@ export const ProfilePersons = () => {
     const getInfo = async() => {
         const profile = `https://whitexicanblogs.onrender.com/${id}`;
         const token = localStorage.getItem('token');
-        const respuesta = await axios.get(profile,{
+        try {
+          const respuesta = await axios.get(profile,{
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -57,6 +60,10 @@ export const ProfilePersons = () => {
             img: respuesta.data.profile_img,
             isLoading: false
         });
+        } catch (error) {
+          setPage(true);
+        }
+
     };
 
     useEffect(() => {
@@ -135,6 +142,21 @@ export const ProfilePersons = () => {
     const navigate = useNavigate();
     const onViewPublication =(slug) => {
       navigate(`/publication/${slug}`);
+    }
+
+    if(Page){
+      return (
+        <WhitexicansLayout>
+          <Typography variant="h6" align="center" component="div" sx={{ flexGrow: 1, color:'black', mt: 10, ml: ` ${ open ? null : '30px' }`, mb: 4 }}>
+              USUARIO NO ENCONTRADO
+            </Typography>                       
+              <Box  textAlign='center'>
+                <Button onClick={()=>navigate('/')} variant='contained'>
+                  REGRESAR AL INICIO
+                </Button>
+              </Box>
+        </WhitexicansLayout>
+      )
     }
 
   return (

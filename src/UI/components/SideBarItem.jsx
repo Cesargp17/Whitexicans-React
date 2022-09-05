@@ -43,6 +43,9 @@ export const SideBarItem = ({ nombre, icon, id }) => {
     else if(id === 9){
       navigate('/about')
     }
+    else if( id === 10 ) {
+      navigate('/updates')
+    }
 
   }
 
