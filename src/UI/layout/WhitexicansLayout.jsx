@@ -8,6 +8,7 @@ import { useContext } from 'react';
 import { CreateContext } from '../../whitexicans/context/CreateContex';
 import CloseIcon from '@mui/icons-material/Close';
 import { useScreenSize } from '../../whitexicans/hooks/useScreenSize';
+import { SearchPeople } from '../../whitexicans/components/SearchPeople';
 
 export const WhitexicansLayout = ({ children }) => {
 

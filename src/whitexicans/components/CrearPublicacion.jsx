@@ -94,6 +94,7 @@ export const CrearPublicacion = () => {
 
       const handleChange = event => {
         setCat(event.target.value);
+        console.log(Cat)
       };
 
       const [Severidad, setSeveridad] = useState();

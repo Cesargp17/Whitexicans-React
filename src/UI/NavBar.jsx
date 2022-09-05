@@ -7,6 +7,7 @@ import { useScreenSize } from '../whitexicans/hooks/useScreenSize';
 import { CreateContext } from '../whitexicans/context/CreateContex';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import { SearchPeople } from '../whitexicans/components/SearchPeople';
 
 
 export const NavBar = ({ drawerWidth = 255 }) => {
@@ -45,10 +46,11 @@ export const NavBar = ({ drawerWidth = 255 }) => {
             </IconButton>
 
             <Grid container direction='row' justifyContent='space-between' alignItems='center'>
-            <Badge sx={{ mt: 2 }} badgeContent='Beta v1.0.0' color="secondary">
+            <Badge sx={{ mt: 2 }} badgeContent='Beta v1.0.1' color="secondary">
                 <Typography variant='h6' noWrap component='div'> Whitexicans</Typography>
                 </Badge>
                 {/* <IconButton onClick={()=>navigate(`/perfil/${ user.slug }`)} color='secondary'> */}
+                                <SearchPeople/>
             {
             width <= 599
             ? (

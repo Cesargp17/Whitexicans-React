@@ -47,7 +47,7 @@ export const LoginPage = () => {
   return (
     <AuthLayout title='Iniciar Sesion'>
                   <h1 className='titulo' align="center" component="h1" variant="h1" sx={{ mt: 2, mb: 8 }}>
-                  <Badge sx={{ mt: 2 }} badgeContent='Beta v1.0.0' color="secondary">
+                  <Badge sx={{ mt: 2 }} badgeContent='Beta v1.0.1' color="secondary">
               WHITEXICANS BLOG
               </Badge>
             </h1>
