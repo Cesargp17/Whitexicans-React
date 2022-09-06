@@ -6,11 +6,11 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../auth/context/AuthContext';
 import { CreateContext } from '../../whitexicans/context/CreateContex';
 
-export const SideBarItem = ({ nombre, icon, id }) => {
+export const SideBarItem = ({ nombre, icon, id, number }) => {
 
   const { logout, openModal, setOpenModal, user } = useContext(AuthContext);
 
-  const { Publicacion, open, setOpen, handleOpen, handleClose } = useContext(CreateContext);
+  const { Publicacion, open, setOpen, handleOpen, handleClose, onGetNotifications } = useContext(CreateContext);
 
   const isSavingPost = useMemo( () => Publicacion.isSaving === true );
 
@@ -26,14 +26,18 @@ export const SideBarItem = ({ nombre, icon, id }) => {
     }
     else if(id === 5){
       navigate(`/perfil/${ user.slug }`)
+      onGetNotifications();
     }
     else if( id === 1 ){
       navigate('/')
+      onGetNotifications();
     }
     else if(id === 3){
       navigate('/populars')
+      onGetNotifications();
     }else if(id === 4){
       navigate('/follows')
+      onGetNotifications();
     }else if(id === 6){
       navigate(`/settings/${ user.slug }`);
     }
@@ -47,7 +51,9 @@ export const SideBarItem = ({ nombre, icon, id }) => {
       navigate('/updates')
     }
     else if ( id === 11){
+      onGetNotifications();
       setOpen(true);
+      
     }
 
   }
@@ -56,7 +62,7 @@ export const SideBarItem = ({ nombre, icon, id }) => {
     <ListItem onClick={ ()=>onClickSideBar(id) } disablePadding>
     <ListItemButton>
         <ListItemIcon disabled={isSavingPost}>
-            {icon}
+            {icon} { number }
         </ListItemIcon>
         <Grid container>
             <ListItemText primary={ nombre } />

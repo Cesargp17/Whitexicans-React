@@ -21,12 +21,14 @@ export const SideBar = ({ drawerWidth = 240 }) => {
 
     const { width, height } = useScreenSize();
 
+    const { OpenMenú: open, setOpenMenú: setOpen, Notifications } = useContext(CreateContext);
+
     const Navegacion = [
         {id: 1, nombre: 'Inicio', icon: <HomeIcon/>},
         {id: 2, nombre: 'Crear publicación', icon: <PostAddIcon/>},
         { id: 3, nombre: 'Más populares', icon: <LocalFireDepartmentIcon/> },
         { id: 4, nombre: 'Publicaciones de amigos', icon: <GroupIcon/> },
-        { id: 11, nombre: 'Notificaciones', icon: <NotificationsIcon/> },
+        { id: 11, nombre: 'Notificaciones', icon: <NotificationsIcon/> , number: Notifications.isLoading ? null : Notifications.notificacicones.length},
         { id: 5, nombre: 'Perfíl', icon: <AccountCircleIcon/> },
         { id: 6, nombre: 'Ajustes', icon: <SettingsIcon/> },
         { id: 8, nombre: 'Publicidad', icon: <LocalLibraryIcon/> },
@@ -36,8 +38,6 @@ export const SideBar = ({ drawerWidth = 240 }) => {
     ];
 
     // const [open, setOpen] = useState(false);
-
-    const { OpenMenú: open, setOpenMenú: setOpen } = useContext(CreateContext);
 
     const getSizeScreen = () => {
         if(width >= 606) {

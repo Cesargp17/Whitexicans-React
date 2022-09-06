@@ -54,7 +54,6 @@ export const Notificaciones = () => {
 
   return (
     <div>
-    <Button onClick={handleOpen}>Open modal</Button>
     <Modal
       open={open}
       onClose={handleClose}
@@ -82,6 +81,11 @@ export const Notificaciones = () => {
                     <hr></hr>
                     <p>{ n.content }</p>
                     <Box textAlign='center'>
+                      {
+                        n.content.includes('seguirte')
+                        ?<Button onClick={()=>navigate(`/perfil/${ n.link }`)} sx={{ color: 'black' }}>Ver</Button>
+                        :<Button onClick={()=>navigate(`/publication/${ n.link }`)} sx={{ color: 'black' }}>Ver</Button>
+                      }
                     {/* <Button onClick={()=>navigate(`/publication/${ n.link }`)} sx={{ color: 'black' }}>
                         Ver
                     </Button> */}
