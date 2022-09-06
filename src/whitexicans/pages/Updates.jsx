@@ -40,6 +40,23 @@ export const Updates = () => {
             <Card sx={{ width: `${ open ? '450px' : '280px'}`, ml: `${ open ? '0px' : '40px' }`, mt: 5, mb: 3 }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
+          Actualización Beta v1.1.1
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Hemos agregado nuevas carácteristicas a Whitexicans Blog: 
+        </Typography>
+        <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary">
+          - Notificaciones: ahora cuando un usuario comenta y da like a una de tus publicaciones, recibirás una notificaciones. 
+        </Typography>
+        <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary">
+          - En una próxima actualizacion agregaremos más caracteristicas a las notificaciones.
+        </Typography>
+      </CardContent>
+    </Card>
+
+            <Card sx={{ width: `${ open ? '450px' : '280px'}`, ml: `${ open ? '0px' : '40px' }`, mt: 5, mb: 3 }}>
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
           Actualización Beta v1.0.1
         </Typography>
         <Typography variant="body2" color="text.secondary">

@@ -9,6 +9,7 @@ import { CreateContext } from '../../whitexicans/context/CreateContex';
 import CloseIcon from '@mui/icons-material/Close';
 import { useScreenSize } from '../../whitexicans/hooks/useScreenSize';
 import { SearchPeople } from '../../whitexicans/components/SearchPeople';
+import { Notificaciones } from '../../whitexicans/components/Notificaciones';
 
 export const WhitexicansLayout = ({ children }) => {
 
@@ -34,6 +35,7 @@ export const WhitexicansLayout = ({ children }) => {
 
     <Box component='main' sx={{ flexGrow: 1 }}>
         <Toolbar />
+        <Notificaciones/>
 
         { children }
 

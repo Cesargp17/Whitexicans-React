@@ -16,6 +16,7 @@ import { useContext } from 'react';
 import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 import GroupIcon from '@mui/icons-material/Group';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 export const SideBar = ({ drawerWidth = 240 }) => {
 
     const { width, height } = useScreenSize();
@@ -25,6 +26,7 @@ export const SideBar = ({ drawerWidth = 240 }) => {
         {id: 2, nombre: 'Crear publicación', icon: <PostAddIcon/>},
         { id: 3, nombre: 'Más populares', icon: <LocalFireDepartmentIcon/> },
         { id: 4, nombre: 'Publicaciones de amigos', icon: <GroupIcon/> },
+        { id: 11, nombre: 'Notificaciones', icon: <NotificationsIcon/> },
         { id: 5, nombre: 'Perfíl', icon: <AccountCircleIcon/> },
         { id: 6, nombre: 'Ajustes', icon: <SettingsIcon/> },
         { id: 8, nombre: 'Publicidad', icon: <LocalLibraryIcon/> },

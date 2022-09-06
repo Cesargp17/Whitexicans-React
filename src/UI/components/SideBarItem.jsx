@@ -10,7 +10,7 @@ export const SideBarItem = ({ nombre, icon, id }) => {
 
   const { logout, openModal, setOpenModal, user } = useContext(AuthContext);
 
-  const { Publicacion } = useContext(CreateContext);
+  const { Publicacion, open, setOpen, handleOpen, handleClose } = useContext(CreateContext);
 
   const isSavingPost = useMemo( () => Publicacion.isSaving === true );
 
@@ -45,6 +45,9 @@ export const SideBarItem = ({ nombre, icon, id }) => {
     }
     else if( id === 10 ) {
       navigate('/updates')
+    }
+    else if ( id === 11){
+      setOpen(true);
     }
 
   }

@@ -148,10 +148,42 @@ export const CreateProvider = ({ children }) => {
           comment: data,
           isLoading: false
         })
-    }
+    };
+
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    const [Notifications, setNotifications] = useState({
+      notificaciones: [],
+      isLoading: true
+    });
+
+    const onGetNotifications = async() => {
+      const token = localStorage.getItem('token');
+      const url = 'https://whitexicanblogs.onrender.com/notification/';
+      try {
+          const resp = await axios.get(url,{
+              headers: {
+                'Authorization': `Bearer ${token}`
+              }
+            });
+          setNotifications({
+            notificacicones: resp.data,
+            isLoading: false
+          });
+      } catch (error) {
+          console.log(error)
+      }
+  };
+
+
+  useEffect(() => {
+    onGetNotifications();
+  }, []);
 
   return (
-    <CreateContext.Provider value={{ createPublication, Categorias: Categorias, Publicacion: Publicacion, startUploadingFiles, Photos: Photos, onGetComments, Comment, isSaving, isSavingFalse, OpenMenú: OpenMenú, setOpenMenú }}>
+    <CreateContext.Provider value={{ createPublication, Categorias: Categorias, Publicacion: Publicacion, startUploadingFiles, Photos: Photos, onGetComments, Comment, isSaving, isSavingFalse, OpenMenú: OpenMenú, setOpenMenú, open: open, setOpen, handleOpen, handleClose, onGetNotifications, Notifications: Notifications }}>
         { children }
     </CreateContext.Provider>
   )
